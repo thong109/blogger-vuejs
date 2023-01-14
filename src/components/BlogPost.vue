@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="blog-photo">
-      <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" />
+      <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" class="photo" />
       <img v-else :src="post.blogCoverPhoto" alt="" />
     </div>
   </div>
@@ -61,6 +61,8 @@ export default {
   @media (min-width: 700px) {
     flex-direction: row;
     padding: 30px 45px;
+    max-height: 650px;
+    min-height: 650px;
   }
 
   .blog-content {
@@ -137,7 +139,10 @@ export default {
   .blog-photo {
     order: 1;
     flex: 3;
+    padding: 0 !important;
+    height: auto;
     margin-top: 10px;
+    position: relative;
 
     @media (min-width: 700px) {
       order: 2;
@@ -150,8 +155,10 @@ export default {
     img {
       display: block;
       width: 100%;
-      object-fit: cover;
       height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 
